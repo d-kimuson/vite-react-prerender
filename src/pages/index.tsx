@@ -1,9 +1,7 @@
-import React, { useState } from "react"
-// @ts-expect-error
-import logo from "./logo.svg"
-import "./App.css"
+import { useState } from "react"
+import logo from "../logo.svg"
 
-export const App: React.VFC = () => {
+const IndexPage: React.VFC = () => {
   const [count, setCount] = useState(0)
 
   return (
@@ -17,7 +15,7 @@ export const App: React.VFC = () => {
           </button>
         </p>
         <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
+          Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
         <a
           className="App-link"
@@ -32,4 +30,4 @@ export const App: React.VFC = () => {
   )
 }
 
-export default App
+export default IndexPage

@@ -1,19 +1,33 @@
 {
   "name": "vite-react",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "tsm ./src/server/server.ts",
+    "generate": "run-s generate:*",
+    "generate:manifest": "vite build --ssrManifest --outDir dist/static",
+    "generate:build": "vite build --ssr src/server/entry-server.tsx --outDir dist/server",
+    "generate:prerender": "tsm ./src/server/prerender.ts",
+    "pregenerate": "rm -rf dist",
+    "serve": "http-server dist/static",
     "typecheck": "tsc -p . --noEmit"
   },
   "dependencies": {
-    "preact": "^10.5.15"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
-    "@prefresh/vite": "^2.2.3",
-    "@tsconfig/recommended": "^1.0.1",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.4",
     "@types/react": "^17.0.31",
     "@types/react-dom": "^17.0.10",
+    "@types/react-router-dom": "^5.3.2",
+    "@vitejs/plugin-react": "^1.0.7",
+    "express": "^4.17.1",
+    "http-server": "^14.0.0",
+    "npm-run-all": "^4.1.5",
+    "tsm": "^2.1.4",
     "typescript": "^4.4.4",
     "vite": "^2.6.10",
     "vite-plugin-react": "^4.0.0"

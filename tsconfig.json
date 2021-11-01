@@ -1,5 +1,4 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -11,16 +10,14 @@
     },
     "strict": true,
     "jsx": "preserve",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment",
     "importHelpers": true,
     "moduleResolution": "node",
-    "noEmit": false,
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noUncheckedIndexedAccess": false
   },
   "files": ["vite.config.ts"],
-  "include": ["src/**/*.ts"],
+  "include": ["src", "@types"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,10 @@
-import { render } from "preact"
-import "./index.css"
-import App from "./App"
+import { hydrate } from "react-dom"
+import { BrowserRouter } from "react-router-dom"
+import Routing from "./components/functional/Routes"
 
-render(<App />, document.getElementById("root"))
+hydrate(
+  <BrowserRouter>
+    <Routing />
+  </BrowserRouter>,
+  document.getElementById("root")
+)
