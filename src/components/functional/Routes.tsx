@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom"
-import App from "../../pages/_app"
+import App from "~/pages/_app"
 
 type PageConf = {
   [path: string]: {

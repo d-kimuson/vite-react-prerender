@@ -1,6 +1,6 @@
 import { renderToString } from "react-dom/server.js"
 import { StaticRouter } from "react-router-dom"
-import Routes from "../components/functional/Routes"
+import Routes from "~/components/functional/Routes"
 
 export function render(
   url: string,
@@ -29,7 +29,7 @@ export type ServerRender = typeof render
 function renderPreloadLink(fileName: string): string {
   if (fileName.endsWith(".js")) {
     return `<link rel="modulepreload" crossorigin href="${fileName}">`
-  } else if (fileName.endsWith(".css")) {
+  } else if (fileName.endsWith(".css") || fileName.endsWith(".scss")) {
     return `<link rel="stylesheet" href="${fileName}">`
   } else if (fileName.endsWith(".woff")) {
     return ` <link rel="preload" href="${fileName}" as="font" type="font/woff" crossorigin>`

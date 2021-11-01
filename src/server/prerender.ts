@@ -19,8 +19,6 @@ const manifest = JSON.parse(
   readFileSync(toAbsolute("dist/static/ssr-manifest.json"), "utf-8")
 )
 
-console.log("manifest: ", manifest)
-
 const searchFileNamesRecursively = (
   path: string,
   baseName: string | undefined = undefined

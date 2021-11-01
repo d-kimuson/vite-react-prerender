@@ -1,6 +1,6 @@
 import { useState } from "react"
-import logo from "../logo.svg"
-import Button from "../components/ui/Button"
+import logo from "~/logo.svg"
+import Button from "~/components/ui/Button"
 
 const IndexPage: React.VFC = () => {
   const [count, setCount] = useState(0)
