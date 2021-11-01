@@ -15,6 +15,11 @@ const rootDir = resolve(__dirname, "../../")
 const toAbsolute = (p: string) => resolve(rootDir, p)
 
 const template = readFileSync(toAbsolute("dist/static/index.html"), "utf-8")
+const manifest = JSON.parse(
+  readFileSync(toAbsolute("dist/static/ssr-manifest.json"), "utf-8")
+)
+
+console.log("manifest: ", manifest)
 
 const searchFileNamesRecursively = (
   path: string,
@@ -45,10 +50,16 @@ const { render } = (await viteServer.ssrLoadModule(
 )) as { render: ServerRender }
 
 for (const route of routesForPrerender) {
-  const [appHtml, preloadLinks] = render(route.path, {})
+  const [appHtml, preloadLinks] = render(
+    route.path,
+    {},
+    { manifest, fileName: route.fileName }
+  )
+
   const html = template
     .replace(`<!--preload-links-->`, preloadLinks)
     .replace(`<!--app-html-->`, appHtml)
+
   const filePath = `dist/static/${route.fileName.replace(".tsx", "")}.html`
   const dirPath = filePath.split("/").slice(0, -1).join("/")
   mkdirSync(dirPath, { recursive: true })
