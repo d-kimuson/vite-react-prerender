@@ -1,5 +1,6 @@
 import { useState } from "react"
 import logo from "../logo.svg"
+import Button from "../components/ui/Button"
 
 const IndexPage: React.VFC = () => {
   const [count, setCount] = useState(0)
@@ -10,9 +11,9 @@ const IndexPage: React.VFC = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
-          <button onTouchEnd={() => setCount((count) => count + 1)}>
+          <Button onClick={() => setCount((count) => count + 1)}>
             count is: {count}
-          </button>
+          </Button>
         </p>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
